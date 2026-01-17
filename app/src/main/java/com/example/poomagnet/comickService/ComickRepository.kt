@@ -308,6 +308,9 @@ class ComickRepository @Inject constructor(val context: Context, private val dow
     }
 
     suspend fun getChapterContents(ch: Chapter): Chapter {
+        if (ch.contents != null && ch.contents is ChapterContents.Downloaded) {
+            // sort the chapter image based on lexo compare
+        }
         try {
             val body = apiService.getChapterPagesInfo(ch.id)
             if (body == null){
