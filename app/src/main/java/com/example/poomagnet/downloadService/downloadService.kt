@@ -242,7 +242,9 @@ public class DownloadService @Inject constructor(@ApplicationContext val context
         } else {
             Log.d("TAG", "checkDownloaded: $chapterId is online")
         }
-        return list.sorted()
+        return list.sortedby {
+            it.split("-").first().toInt()
+        }
     }
 
 
