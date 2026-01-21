@@ -243,7 +243,7 @@ public class DownloadService @Inject constructor(@ApplicationContext val context
             Log.d("TAG", "checkDownloaded: $chapterId is online")
         }
         return list.sortedBy {
-            val match = Regex("\\d+").find(str)
+            val match = Regex("\\d+").find(it)
             match?.value?.toIntOrNull() ?: Int.MAX_VALUE
         }
     }
